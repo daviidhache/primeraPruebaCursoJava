@@ -10,6 +10,7 @@ public abstract class Vehiculo {
 		VERDE, AZUL, ROJO, BLANCO, NEGRO, GRIS;
 	}
 
+	
 	protected int id;
 	protected String nombre;
 	protected Color color;
@@ -25,14 +26,13 @@ public abstract class Vehiculo {
 		this.arrancado = false;
 	}
 
-	protected boolean isArrancado() {
+	public boolean isArrancado() {
 		return arrancado;
 	}
 
-	protected void setArrancado(boolean arrancado) {
+	public void setArrancado(boolean arrancado) {
 		this.arrancado = arrancado;
 	}
-	
 
 	public Color getColor() {
 		return color;

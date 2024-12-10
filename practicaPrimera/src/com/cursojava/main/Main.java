@@ -55,12 +55,9 @@ public class Main {
 				Vehiculo v = obtenerVehiculo(opcion);
 				if (v != null) {
 					System.out.println(v);
-					if(v instanceof Coche c) {
-						menuAccionesVehiculo(c);
-					}if(v instanceof Barco b) {
-						menuAccionesVehiculo(b);
-					}
-					
+
+					menuAccionesVehiculo(v);
+
 				} else {
 					System.err.println("No existe vehículo con el id proporcionado");
 				}
@@ -80,7 +77,6 @@ public class Main {
 	 * @param Vehículo seleccionado
 	 */
 	private static void menuAccionesVehiculo(Vehiculo v) {
-		
 		int opcion = 0;
 		boolean salir = false;
 		do {
@@ -105,6 +101,7 @@ public class Main {
 				case 4:
 					break;
 				case 5:
+					pararVehiculo(v);
 					break;
 				case 6:
 					pintarVehiculo(v);
@@ -118,16 +115,44 @@ public class Main {
 				}
 			} catch (Exception e) {
 				System.err.println("Error");
-				salir = true;
+				break;
 			}
 		} while (!salir);
 	}
 
-	private static void arrancarVehiculo(Vehiculo v) {
-		
-		
+	/**
+	 * Permite cambiar el estado de un vehículo a parado
+	 * 
+	 * @param Vehiculo
+	 */
+	private static void pararVehiculo(Vehiculo v) {
+		if (v.isArrancado()) {
+			v.setArrancado(false);
+		} else {
+			System.err.println("El vehículo ya se encuentra parado");
+		}
+
 	}
 
+	/**
+	 * Permite cambiar el estado de un vehículo a arrancado
+	 * 
+	 * @param Vehiculo
+	 */
+	private static void arrancarVehiculo(Vehiculo v) {
+		if (!v.isArrancado()) {
+			v.setArrancado(true);
+		} else {
+			System.err.println("El vehículo ya se encuentra arrancado");
+		}
+
+	}
+
+	/**
+	 * Pinta el vehiculo
+	 * 
+	 * @param Vehiculo
+	 */
 	private static void pintarVehiculo(Vehiculo v) {
 		System.out.println("Elige color:");
 		for (Color colores : Color.values()) {
@@ -135,9 +160,15 @@ public class Main {
 		}
 		System.out.println("-->");
 		String color = sc.nextLine();
-		
-	
+
 	}
+
+	/**
+	 * Obtiene el vehiculo a partir de su id
+	 * 
+	 * @param id
+	 * @return Vehiculo
+	 */
 	private static Vehiculo obtenerVehiculo(int opcion) {
 		Vehiculo v = null;
 		// Elección dentro del rango
@@ -149,6 +180,9 @@ public class Main {
 		return v;
 	}
 
+	/**
+	 * Muestra todos los vehiculos del sistema
+	 */
 	private static void mostrarVehiculos() {
 		for (Vehiculo vehiculo : lista) {
 			if (vehiculo instanceof Coche c) {
