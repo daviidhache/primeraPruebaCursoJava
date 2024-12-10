@@ -10,7 +10,6 @@ public abstract class Vehiculo {
 		VERDE, AZUL, ROJO, BLANCO, NEGRO, GRIS;
 	}
 
-	
 	protected int id;
 	protected String nombre;
 	protected Color color;
