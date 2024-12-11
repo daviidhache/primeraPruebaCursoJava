@@ -15,6 +15,9 @@ public class Barco extends Vehiculo implements Conducible {
 		// TODO Auto-generated method stub
 
 	}
+	public boolean getArrancado() {
+		return isArrancado();
+	}
 
 	@Override
 	public String toString() {

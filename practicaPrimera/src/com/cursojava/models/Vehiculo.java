@@ -25,11 +25,11 @@ public abstract class Vehiculo {
 		this.arrancado = false;
 	}
 
-	public boolean isArrancado() {
+	protected boolean isArrancado() {
 		return arrancado;
 	}
 
-	public void setArrancado(boolean arrancado) {
+	protected void setArrancado(boolean arrancado) {
 		this.arrancado = arrancado;
 	}
 
