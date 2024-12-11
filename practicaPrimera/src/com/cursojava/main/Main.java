@@ -119,18 +119,14 @@ public class Main {
 			}
 		} while (!salir);
 	}
-
 	/**
 	 * Permite cambiar el estado de un vehículo a parado
 	 * 
 	 * @param Vehiculo
 	 */
 	private static void pararVehiculo(Vehiculo v) {
-		if (v.isArrancado()) {
-			v.setArrancado(false);
-		} else {
-			System.err.println("El vehículo ya se encuentra parado");
-		}
+		Conducible con = (Conducible) v;
+		con.parar();
 
 	}
 
@@ -140,11 +136,8 @@ public class Main {
 	 * @param Vehiculo
 	 */
 	private static void arrancarVehiculo(Vehiculo v) {
-		if (!v.isArrancado()) {
-			v.setArrancado(true);
-		} else {
-			System.err.println("El vehículo ya se encuentra arrancado");
-		}
+		Conducible con = (Conducible) v;
+		con.arrancar();
 
 	}
 

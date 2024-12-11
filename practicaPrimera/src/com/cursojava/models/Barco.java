@@ -15,6 +15,7 @@ public class Barco extends Vehiculo implements Conducible {
 		// TODO Auto-generated method stub
 
 	}
+
 	public boolean getArrancado() {
 		return isArrancado();
 	}
@@ -33,13 +34,21 @@ public class Barco extends Vehiculo implements Conducible {
 
 	@Override
 	public void parar() {
-		// TODO Auto-generated method stub
+		if (isArrancado()) {
+			setArrancado(true);
+		} else {
+			System.err.println("Vehículo ya parado");
+		}
 
 	}
 
 	@Override
 	public void arrancar() {
-		// TODO Auto-generated method stub
+		if (getArrancado()) {
+			System.err.println("Vehículo ya arrancado");
+		} else {
+			setArrancado(true);
+		}
 
 	}
 

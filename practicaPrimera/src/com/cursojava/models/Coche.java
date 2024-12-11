@@ -38,13 +38,21 @@ public class Coche extends Vehiculo implements Conducible {
 
 	@Override
 	public void parar() {
-		// TODO Auto-generated method stub
+		if (isArrancado()) {
+			setArrancado(false);
+		} else {
+			System.err.println("Vehículo ya parado");
+		}
 
 	}
 
 	@Override
 	public void arrancar() {
-		// TODO Auto-generated method stub
+		if (isArrancado()) {
+			System.err.println("Vehículo ya arrancado");
+		} else {
+			setArrancado(true);
+		}
 
 	}
 
