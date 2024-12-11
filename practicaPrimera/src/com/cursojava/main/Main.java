@@ -13,7 +13,7 @@ import com.cursojava.models.Vehiculo.Color;
 /**
  * Aplicación que permite gestionar los vehículos autónomos de empresa X
  * 
- * @author DavidH
+ * @author DavidHernan
  * @version 1.0
  */
 public class Main {
